@@ -1,0 +1,28 @@
+{
+  "title": "Algebra Basics",
+  "subject": "Math",
+  "level": "Beginner",
+  "schema": "pocket-classroom/v1",
+  "notes": [
+    { "id": "n1", "content": "A variable represents an unknown value." },
+    { "id": "n2", "content": "An equation has two expressions separated by an equal sign." }
+  ],
+  "flashcards": [
+    { "id": "f1", "question": "2 + 2 = ?", "answer": "4" },
+    { "id": "f2", "question": "Solve for x: x + 3 = 5", "answer": "2" }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "Which numbers are prime?",
+      "options": ["2", "3", "4", "5"],
+      "answer": ["2", "3", "5"]
+    },
+    {
+      "id": "q2",
+      "question": "What is 5 × 3?",
+      "options": ["8", "15", "10", "20"],
+      "answer": ["15"]
+    }
+  ]
+}

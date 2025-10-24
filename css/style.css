@@ -1,0 +1,244 @@
+/* --------------------------------------
+   Pocket Classroom - Modern Animated Style
+   Glow, Flip, Fade, Gradient & Smooth UI
+--------------------------------------- */
+
+/* BODY */
+body {
+  font-family: "Segoe UI", "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #161616 0%, #595c5e 100%);
+  color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background 0.3s ease;
+}
+
+/* LINKS */
+a {
+  color: #0dcaf0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #31d2f2;
+  text-shadow: 0 0 6px #31d2f2;
+}
+
+/* NAVBAR */
+.navbar {
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  box-shadow: 0 4px 15px rgba(67, 67, 67, 0.5);
+  animation: fadeDown 1s ease forwards;
+}
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.nav-link.active {
+  font-weight: bold;
+  color: #fff !important;
+}
+
+/* BUTTONS */
+.btn-outline-light, .btn-success, .btn-secondary, .btn-danger {
+  transition: all 0.25s ease-in-out;
+  border-radius: 10px;
+}
+.btn-outline-light:hover, .btn-success:hover, .btn-secondary:hover, .btn-danger:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+/* CAPSULE GRID */
+#capsuleGrid .card {
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #242424, #2c2c2c);
+  color: #fff;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease;
+}
+#capsuleGrid .card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(255,255,255,0.2), 0 0 25px rgba(13,110,253,0.4);
+}
+
+/* ---------------- NOTES LIST ---------------- */
+#notesList {
+  max-height: 400px;
+  overflow-y: auto;
+  background: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.05);
+  animation: fadeIn 0.8s ease;
+}
+#notesList .list-group-item {
+  background: transparent;
+  color: #e0e0ff;
+  border-color: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+/* Alternate line colors */
+#notesList .list-group-item:nth-child(odd) {
+  background-color: rgba(45,45,70,0.2);
+}
+#notesList .list-group-item:nth-child(even) {
+  background-color: rgba(45,45,70,0.1);
+}
+#notesList .list-group-item:hover {
+  background-color: rgba(13,110,253,0.15);
+  color: #ffffff;
+}
+
+/* ---------------- FLASHCARDS ---------------- */
+.flashcard {
+  width: 340px;
+  height: 220px;
+  perspective: 1000px;
+  margin: 2rem auto;
+  animation: fadeIn 1s ease;
+}
+.flashcard-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4,0.2,0.2,1);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  background: #222;
+}
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem;
+  color: #ffffff;
+  box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
+  overflow-wrap: break-word;
+  min-height: 50px;
+}
+.flashcard-front {
+  background: linear-gradient(145deg, #0d6efd, #3a8bff);
+  animation: glowBlue 3s infinite alternate;
+}
+.flashcard-back {
+  background: linear-gradient(145deg, #6610f2, #b53fff);
+  transform: rotateY(180deg);
+  animation: glowPurple 3s infinite alternate;
+}
+.flashcard-inner.known {
+  border: 3px solid #28a745;
+  box-shadow: 0 0 20px #28a74588, 0 0 10px #28a74555;
+}
+.flashcard-inner.unknown {
+  border: 3px solid #dc3545;
+  box-shadow: 0 0 20px #dc354588, 0 0 10px #dc354555;
+}
+#flashStatus {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+  animation: fadeIn 1.2s ease;
+}
+#prevCard, #nextCard, #flipCard, #markKnown, #markUnknown {
+  transition: all 0.25s ease;
+  margin: 0.25rem;
+  border-radius: 10px;
+}
+#prevCard:hover, #nextCard:hover, #flipCard:hover, #markKnown:hover, #markUnknown:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255,255,255,0.25);
+}
+
+/* ---------------- AUTHOR / NEW CAPSULE VIEW ---------------- */
+#authorView {
+  background: linear-gradient(145deg, #1e1e2e, #2b2b45);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  animation: fadeInUp 0.8s ease;
+  color: #e0e0ff;
+}
+#authorView input,
+#authorView textarea,
+#authorView select {
+  background-color: #2c2c44;
+  color: #e0e0ff;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 0.6rem;
+  transition: all 0.25s ease;
+}
+#authorView input:focus,
+#authorView textarea:focus,
+#authorView select:focus {
+  background-color: #3a3a5c;
+  border-color: #0d6efd;
+  color: #ffffff;
+  box-shadow: 0 0 12px #0d6efd77;
+}
+
+/* ---------------- QUIZ EDITOR ---------------- */
+#quizEditor input.quiz-q,
+#quizEditor input.quiz-opt,
+#quizEditor input.quiz-ans {
+  background-color: #2d2d44;
+  color: #e0e0ff;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+/* Alternate quiz option colors */
+.list-group-item.quiz-opt:nth-child(1) { background-color: #2a2a3c; color: #ffdcdc; }
+.list-group-item.quiz-opt:nth-child(2) { background-color: #2c2c45; color: #d0ffdc; }
+.list-group-item.quiz-opt:nth-child(3) { background-color: #2e2e4c; color: #dcd0ff; }
+.list-group-item.quiz-opt:nth-child(4) { background-color: #30305b; color: #fffacd; }
+.list-group-item.quiz-opt:hover {
+  background-color: #0d6efd;
+  color: #ffff99;
+  transform: translateX(3px);
+}
+
+/* ---------------- NO CAPSULE PLACEHOLDER ---------------- */
+#noCapsuleMessage {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 2rem 0;
+  background: linear-gradient(90deg, #6c63ff, #00bfff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: glowText 2s ease-in-out infinite alternate, fadeIn 1.2s ease;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+@keyframes glowText {
+  from { text-shadow: 0 0 5px #6c63ff55, 0 0 10px #00bfff55; }
+  to   { text-shadow: 0 0 12px #6c63ff88, 0 0 25px #00bfff88; }
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes glowBlue { from { box-shadow:0 0 10px #0d6efd44, 0 0 20px #1a73e866; } to { box-shadow:0 0 20px #0d6efd88, 0 0 40px #1a73e8aa; } }
+@keyframes glowPurple { from { box-shadow:0 0 10px #6610f244, 0 0 20px #9c27b066; } to { box-shadow:0 0 20px #6610f288, 0 0 40px #9c27b0aa; } }
